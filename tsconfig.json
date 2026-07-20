@@ -19,16 +19,16 @@
     "incremental": true,
 
     "plugins": [
-  {
-    "name": "next"
-  }
-],
+      {
+        "name": "next"
+      }
+    ],
 
-"paths": {
-  "@/*": [
-    "./src/*"
-  ]
-}
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
 
   "include": [
