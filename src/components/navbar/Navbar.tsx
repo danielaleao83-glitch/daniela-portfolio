@@ -1,48 +1,82 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  Menu,
+  X,
+  Home,
+  User,
+  FolderGit2,
+  FileText,
+  BrainCircuit,
+  Trophy,
+  Mail,
+} from "lucide-react";
+
+
+const links = [
+  {
+    name: "Home",
+    href: "#home",
+    icon: Home,
+  },
+
+  {
+    name: "Sobre",
+    href: "#about",
+    icon: User,
+  },
+
+  {
+    name: "Projetos",
+    href: "#projects",
+    icon: FolderGit2,
+  },
+
+  {
+    name: "Currículo",
+    href: "#resume",
+    icon: FileText,
+  },
+
+  {
+    name: "IA",
+    href: "#ai",
+    icon: BrainCircuit,
+  },
+
+  {
+    name: "Quizzes",
+    href: "#quiz-atualidades",
+    icon: Trophy,
+  },
+
+  {
+    name: "Contato",
+    href: "#contact",
+    icon: Mail,
+  },
+];
+
 
 export default function Navbar() {
 
   const [open, setOpen] = useState(false);
 
-  const links = [
-    {
-      name: "Home",
-      href: "#home",
-    },
-    {
-      name: "Sobre Mim",
-      href: "#sobre",
-    },
-    {
-      name: "Projetos",
-      href: "#projetos",
-    },
-    {
-      name: "eSUS APS",
-      href: "#esus",
-    },
-    {
-      name: "Contato",
-      href: "#contato",
-    },
-  ];
-
 
   return (
-    <motion.nav
+
+    <motion.header
 
       initial={{
-        opacity:0,
-        y:-50
+        y:-100,
+        opacity:0
       }}
 
       animate={{
-        opacity:1,
-        y:0
+        y:0,
+        opacity:1
       }}
 
       transition={{
@@ -51,148 +85,195 @@ export default function Navbar() {
 
       className="
       fixed
-      top-5
-      left-1/2
-      -translate-x-1/2
+      top-0
+      left-0
       z-50
-      w-[90%]
-      max-w-7xl
-      glass
-      px-8
+      w-full
+      px-6
       py-5
       "
 
     >
 
+      <nav
 
-      <div className="
-      flex
-      items-center
-      justify-between
-      ">
+        className="
+        mx-auto
+        flex
+        max-w-7xl
+        items-center
+        justify-between
+        rounded-2xl
+        border
+        border-white/10
+        bg-black/30
+        px-6
+        py-4
+        backdrop-blur-xl
+        "
+
+      >
 
 
         {/* Logo */}
 
         <a
+
           href="#home"
+
           className="
-          text-3xl
-          font-black
           metal
-          tracking-wider
+          text-2xl
+          font-black
           "
+
         >
-          DL
+
+          DANIELA.DEV
+
         </a>
 
 
 
-        {/* Menu Desktop */}
+        {/* Desktop */}
 
         <div
+
           className="
           hidden
-          md:flex
+          lg:flex
           items-center
-          gap-8
+          gap-6
           "
+
         >
 
-          {links.map((link)=>(
+          {links.map((link)=>{
 
-            <a
+            const Icon = link.icon;
 
-              key={link.name}
 
-              href={link.href}
+            return (
 
-              className="
-              text-slate-300
-              font-medium
-              transition
-              duration-300
-              hover:text-white
-              hover:scale-110
-              "
+              <a
 
-            >
+                key={link.name}
 
-              {link.name}
+                href={link.href}
 
-            </a>
+                className="
+                group
+                flex
+                items-center
+                gap-2
+                text-sm
+                font-semibold
+                text-slate-300
+                transition
+                hover:text-white
+                "
 
-          ))}
+              >
+
+                <Icon
+
+                  size={16}
+
+                  className="
+                  text-blue-400
+                  transition
+                  group-hover:scale-125
+                  "
+
+                />
+
+                {link.name}
+
+              </a>
+
+            );
+
+          })}
 
 
         </div>
 
 
 
-        {/* Botão Mobile */}
+        {/* Mobile Button */}
 
         <button
 
           onClick={()=>setOpen(!open)}
 
           className="
-          md:hidden
+          rounded-xl
+          border
+          border-white/20
+          bg-white/10
+          p-3
           text-white
+          lg:hidden
           "
 
         >
 
-          {
-            open
-            ?
-            <X size={30}/>
-            :
-            <Menu size={30}/>
-          }
+          {open ?
 
+            <X size={25}/>
+
+            :
+
+            <Menu size={25}/>
+
+          }
 
         </button>
 
 
-      </div>
+      </nav>
 
 
 
-
-      {/* Menu Mobile */}
-
-
-      {
-        open && (
-
-          <motion.div
-
-            initial={{
-              opacity:0,
-              height:0
-            }}
-
-            animate={{
-              opacity:1,
-              height:"auto"
-            }}
-
-            className="
-            md:hidden
-            flex
-            flex-col
-            gap-5
-            mt-6
-            border-t
-            border-white/10
-            pt-6
-            "
-
-          >
+      {/* Mobile Menu */}
 
 
-            {
-              links.map((link)=>(
+      {open && (
+
+        <motion.div
+
+          initial={{
+            opacity:0,
+            y:-20
+          }}
+
+          animate={{
+            opacity:1,
+            y:0
+          }}
+
+          className="
+          mt-3
+          rounded-2xl
+          border
+          border-white/10
+          bg-black/50
+          p-6
+          backdrop-blur-xl
+          lg:hidden
+          "
+
+        >
+
+          <div className="flex flex-col gap-5">
+
+
+            {links.map((link)=>{
+
+              const Icon = link.icon;
+
+
+              return (
 
                 <a
 
@@ -203,27 +284,40 @@ export default function Navbar() {
                   onClick={()=>setOpen(false)}
 
                   className="
-                  text-slate-300
-                  hover:text-white
+                  flex
+                  items-center
+                  gap-3
+                  text-white
                   transition
+                  hover:text-blue-400
                   "
 
                 >
+
+                  <Icon
+                    size={20}
+                    className="text-blue-400"
+                  />
 
                   {link.name}
 
                 </a>
 
-              ))
-            }
+              );
+
+            })}
 
 
-          </motion.div>
-
-        )
-      }
+          </div>
 
 
-    </motion.nav>
+        </motion.div>
+
+      )}
+
+
+    </motion.header>
+
   );
+
 }
