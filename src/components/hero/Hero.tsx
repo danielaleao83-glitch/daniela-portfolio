@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Download, FolderOpen } from "lucide-react";
+import { Download, FolderOpen, Eye } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -59,12 +59,7 @@ export default function Hero() {
             mt-5
             "
           >
-            DANIELA
-            <br />
-            LEÃO DA SILVA
-          </h1>
-
-
+            DANIELA <br />LEÃO DA SILVA </h1>
           <p
             className="
             mt-8
@@ -84,7 +79,7 @@ export default function Hero() {
 
             Atualmente desenvolvendo um sistema de
             Prontuário Eletrônico inspirado no ecossistema
-            eSUS APS.
+            Pec (Prontuario Eletrônico do Cidadão)
           </p>
 
 
@@ -92,6 +87,9 @@ export default function Hero() {
           {/* BOTÕES */}
 
           <div className="flex flex-wrap gap-5 mt-10">
+
+
+            {/* PROJETOS */}
 
             <motion.a
               href="#projetos"
@@ -112,8 +110,37 @@ export default function Hero() {
 
 
 
+            {/* VISUALIZAR CURRÍCULO */}
+
             <motion.a
-              href="/curriculo.pdf"
+              href="/cv/curriculo.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              className="
+              glass
+              px-8
+              py-4
+              rounded-xl
+              flex
+              items-center
+              gap-3
+              cursor-pointer
+              "
+            >
+
+              <Eye size={22} />
+
+              Visualizar CV
+
+            </motion.a>
+
+
+
+            {/* DOWNLOAD CURRÍCULO */}
+
+            <motion.a
+              href="/cv/curriculo.pdf"
               download
               whileHover={{ scale: 1.05 }}
               className="
@@ -133,6 +160,7 @@ export default function Hero() {
               Download CV
 
             </motion.a>
+
 
           </div>
 
@@ -185,7 +213,7 @@ export default function Hero() {
               </h2>
 
               <p className="mt-2 text-slate-300">
-                Sistema eSUS APS
+                Sistema Pec (Prontuario Eletrônico do Cidadão)
               </p>
 
             </div>
@@ -201,7 +229,6 @@ export default function Hero() {
         {/* FOTO */}
 
         <motion.div
-
           initial={{
             opacity: 0,
             scale: 0.8

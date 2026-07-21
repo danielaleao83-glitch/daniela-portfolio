@@ -13,22 +13,22 @@ const contacts = [
   {
     icon: Mail,
     title: "Email",
-    text: "seuemail@email.com",
-    link: "mailto:seuemail@email.com",
+    text: "daniela.leao83@gmail.com",
+    link: "mailto:daniela.leao83@gmail.com",
   },
 
   {
     icon: ExternalLink,
     title: "LinkedIn",
     text: "Meu perfil profissional",
-    link: "https://www.linkedin.com/",
+    link: "https://www.linkedin.com/in/daniela-leão-561466a1",
   },
 
   {
     icon: ExternalLink,
     title: "GitHub",
     text: "Meus projetos",
-    link: "https://github.com/",
+    link: "https://github.com/danielaleao83-glitch/daniela-portfolio",
   },
 ];
 
